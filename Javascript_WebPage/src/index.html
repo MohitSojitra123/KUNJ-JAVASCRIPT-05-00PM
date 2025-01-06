@@ -1,0 +1,625 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+
+<style>
+  #card_id_1{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  #team_card_1{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+</style>
+
+
+<!-- Remix Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Remix Icon -->
+
+
+<body>
+
+    <div class="" id="main_container"></div>
+
+
+</body>
+<script>
+
+
+let main_container=document.getElementById("main_container");
+
+let nav_bar=document.createElement('div');
+let hero_section=document.createElement('div');
+let coll_section=document.createElement('div');
+let product_title=document.createElement('div');
+let main_center_container=document.createElement('div');
+let card_container=document.createElement('div');
+let team_heading=document.createElement('div');
+let team_section=document.createElement('div');
+let main_card_container=document.createElement('div'); 
+let img_section=document.createElement('div');
+
+let main_footer=document.createElement('div');
+
+main_container.appendChild(nav_bar);
+main_container.appendChild(hero_section);
+main_container.appendChild(coll_section);
+main_container.appendChild(product_title);
+main_card_container.appendChild(card_container);
+main_container.appendChild(main_card_container);
+main_container.appendChild(team_heading);
+
+main_center_container.appendChild(team_section);
+main_container.appendChild(main_center_container);
+main_container.appendChild(img_section);
+
+main_container.appendChild(main_footer);
+
+
+// NavBar
+nav_bar.setAttribute('id','nav_bar')
+
+let nav_right=document.createElement('div');
+let nav_center=document.createElement('div');
+let nav_left=document.createElement('div');
+
+
+nav_right.setAttribute('id','nav_right');
+nav_center.setAttribute('id','nav_center');
+nav_left.setAttribute('id','nav_left');
+
+nav_bar.appendChild(nav_right);
+nav_bar.appendChild(nav_center);
+nav_bar.appendChild(nav_left);
+
+nav_bar.setAttribute('class','w-[100%] h-[80px] flex justify-between items-center md:px-[20px]');
+nav_right.setAttribute('class','w-[150px] sm:w-[200px] h-[100%]  flex justify-center items-center');
+
+let nav_right_logo=document.createElement('img');
+nav_right.appendChild(nav_right_logo);
+nav_right_logo.setAttribute('src','./Photo/Logo(1).svg');
+nav_right_logo.setAttribute('class','w-[130px] h-[60px] sm:w-[150px] sm:h-[70px]');
+
+nav_center.setAttribute('class','hidden md:w-[400px] h-[100%]  sm:flex justify-center items-center gap-x-[20px]');
+
+let nav_item_1=document.createElement('div');
+let nav_item_2=document.createElement('div');
+let nav_item_3=document.createElement('div');
+let nav_item_4=document.createElement('div');
+let nav_item_5=document.createElement('div');
+let nav_item_6=document.createElement('div');
+
+nav_item_1.setAttribute('class','nav_items');
+nav_item_2.setAttribute('class','nav_items');
+nav_item_3.setAttribute('class','nav_items');
+nav_item_4.setAttribute('class','nav_items');
+nav_item_5.setAttribute('class','nav_items');
+nav_item_6.setAttribute('class','nav_items');
+
+nav_center.appendChild(nav_item_1);
+nav_center.appendChild(nav_item_2);
+nav_center.appendChild(nav_item_3);
+nav_center.appendChild(nav_item_4);
+nav_center.appendChild(nav_item_5);
+nav_center.appendChild(nav_item_6);
+
+                           
+nav_item_1.innerText="Home";
+nav_item_2.innerText="About";
+nav_item_3.innerText="Pages";
+nav_item_4.innerText="Shop";
+nav_item_5.innerText="Projects";
+nav_item_6.innerText="News";
+
+nav_item_6.setAttribute('class','mr-[15px]');
+
+let nav_left_logo_1=document.createElement('div');
+let nav_left_logo_2=document.createElement('div');
+let menu=document.createElement('div');
+
+nav_left_logo_1.setAttribute('id','nav_left_logo_1');
+nav_left_logo_2.setAttribute('id','nav_left_logo_2');
+menu.setAttribute('id','menu');
+
+nav_left.appendChild(nav_left_logo_1);
+nav_left.appendChild(nav_left_logo_2);
+nav_bar.appendChild(menu);
+
+nav_left.setAttribute('class',' hidden w-[110px] h-[100%]  md:flex justify-center gap-x-[20px] items-center');
+
+nav_left_logo_1.setAttribute('class','ri-search-line hidden bg-[#7EB693]  text-white w-[35px] h-[35px]  md:flex justify-center items-center rounded-[50px]');
+nav_left_logo_2.setAttribute('class','ri-shopping-cart-line hidden  bg-[#274C5B] text-white w-[35px] h-[35px]  md:flex justify-center items-center rounded-[50px]');
+
+menu.setAttribute('class','ri-menu-line text-[30px] flex sm:hidden mr-[20px]');
+
+console.log(nav_left);
+// NavBar
+
+// Hero Section 
+
+hero_section.setAttribute('id','hero_section');
+
+
+hero_section.setAttribute('class','w-[100%] h-auto md:h-[400px] flex  flex-col sm:flex-row justify-center items-center')
+
+
+let left_hero=document.createElement('div');
+let right_hero=document.createElement('div');
+
+
+left_hero.setAttribute('id','left_hero');
+right_hero.setAttribute('id','right_hero');
+
+
+hero_section.appendChild(left_hero);
+hero_section.appendChild(right_hero);
+
+let hero_img=document.createElement('img');
+
+right_hero.appendChild(hero_img);
+hero_img.setAttribute('src','./Photo/Image.png');
+
+right_hero.setAttribute('class','order-1 sm:order-3  w-[80%] h-auto md:h-[100%]')
+hero_img.setAttribute('class','w-[100%]  h-[100%] object-cover')
+
+left_hero.setAttribute('class','order-2 sm:order-2 text-left w-[100%] sm:w-[50%] h-[100%]  flex flex-col justify-center  items-center md:items-end space-y-4');
+
+let heading_1=document.createElement('h1');
+heading_1.setAttribute('class','text-[20px] w-[70%] sm:w-[80%] md:w-[60%] lg:w-[50%] md:text-start text-[#68A47F]')
+heading_1.innerText='100% Natural Food';
+left_hero.appendChild(heading_1);
+
+let heading_2=document.createElement('h1');
+heading_2.innerText='Choose the best healthier way of life';
+
+
+left_hero.appendChild(heading_2);
+heading_2.setAttribute('class','text-[30px]  w-[70%] sm:w-[80%] md:w-[65%] lg:w-[50%] text-left font-semibold text-[#274C5B]');
+
+let hero_btn=document.createElement('div');
+hero_btn.innerHTML='Explore Now';
+hero_btn.setAttribute('class','w-[120px] h-[40px] rounded-[10px] flex justify-center md:justify-center md:mr-[80px] items-center bg-[#EFD372] text-[#274C5B]');
+
+left_hero.appendChild(hero_btn);
+
+// Hero Section 
+
+
+// coll
+
+let coll_div_1=document.createElement('div');
+let coll_div_2=document.createElement('div');
+
+coll_section.appendChild(coll_div_1);
+coll_section.appendChild(coll_div_2);
+
+coll_div_1.setAttribute('id','coll_div_1');
+coll_div_1.setAttribute('id','coll_div_2');
+
+coll_section.setAttribute('class','my-[20px] flex justify-center items-center gap-x-[30px] flex-wrap gap-y-[20px]')
+coll_div_1.setAttribute('class','w-[320px] h-[150px] relative flex justify-start flex-col items-start');
+coll_div_2.setAttribute('class','w-[320px] h-[150px] relative flex justify-start flex-col items-start');
+
+
+let coll_div_1_img=document.createElement('img');
+let coll_div_2_img=document.createElement('img');
+
+
+coll_div_1.appendChild(coll_div_1_img);
+coll_div_2.appendChild(coll_div_2_img);
+
+
+coll_div_1_img.setAttribute('src','./Photo/coll1.svg');
+coll_div_2_img.setAttribute('src','./Photo/coll2 (2).svg');
+
+coll_div_1_img.setAttribute('class','w-[100%] h-[100%] object-cover rounded-[20px]');
+coll_div_2_img.setAttribute('class','w-[100%] h-[100%] object-cover rounded-[20px]');
+
+let coll_div_1_content=document.createElement('div');
+
+coll_div_1.appendChild(coll_div_1_content);
+coll_div_1_content.setAttribute('id','coll_div_1_content');
+coll_div_1_content.innerText='Natural!';
+
+coll_div_1_content.setAttribute('class','text-[30px] absolute text-white font-semibold pt-[20px] pl-[10px]');
+
+
+let coll_div_1_content1=document.createElement('div');
+coll_div_1.appendChild(coll_div_1_content1);
+coll_div_1_content1.setAttribute('id','coll_div_1_content1');
+coll_div_1_content1.innerText='Get Garden Fresh Fruits';
+
+coll_div_1_content1.setAttribute('class','text-[20px] absolute pt-[65px] text-white text-balance pl-[10px] w-[200px]');
+
+
+///
+
+let coll_div_2_content=document.createElement('div');
+
+coll_div_2.appendChild(coll_div_2_content);
+coll_div_2_content.setAttribute('id','coll_div_2_content');
+coll_div_2_content.innerText='Offer!!';
+
+coll_div_2_content.setAttribute('class','text-[30px] absolute text-[#7EB693] font-semibold pt-[20px] pl-[10px]');
+
+
+let coll_div_2_content2=document.createElement('div');
+coll_div_2.appendChild(coll_div_2_content2);
+coll_div_2_content2.setAttribute('id','coll_div_2_content1');
+coll_div_2_content1.innerText='Get 10% off on Vegetables';
+
+coll_div_2_content2.setAttribute('class','text-[20px] absolute pt-[65px] text-[#274C5B] text-balance pl-[10px] w-[200px]');
+
+// coll
+
+
+// card title
+
+product_title.setAttribute('class','w-[100%] h-auto flex justify=center items-center flex-col my-[20px] ');
+
+let product_title_1=document.createElement('h1');
+let product_title_2=document.createElement('h1');
+
+product_title.appendChild(product_title_1);
+product_title.appendChild(product_title_2);
+
+product_title_1.innerText='Categories';
+product_title_2.innerText='Our Products';
+
+product_title_1.setAttribute('class','text-[#7EB693] text-[20px] font-semibold');
+product_title_2.setAttribute('class','text-[#274C5B] text-[30px] font-bold');
+
+// card title
+
+
+
+main_card_container.setAttribute('class','w-[100%] h-auto flex justify-center items-center');
+
+card_container.setAttribute('class','w-[100%] md:w-[80%] h-auto px-[10px] flex justify-center items-center flex-wrap gap-[30px] my-[15px]');
+
+
+function generate_cade(img_i){
+
+  let array=['./Photo/product_1.svg','./Photo/product_2.svg','./Photo/product_3.svg','./Photo/product_4.svg','./Photo/product_5.svg','./Photo/product_6.svg','./Photo/product_7.svg','./Photo/product_8.svg','./Photo/product_9.svg','./Photo/product_10.svg','./Photo/product_11.svg','./Photo/product_12.svg'];
+
+  let array1=['Calabrese Broccoli','Fresh Banana Fruites','White Nuts','Vegan Red Tomato','Mung Bean','Brown Hazelnut','Eggs','Zelco Suji Elaichi Rusk','White Hazelnut','Fresh Corn','Organic Almonds','Mung Bean'];
+
+  let array_price=['13.00','14.00','15.00','18.00','16.00','11.00','17.00','19.00','10.00','14.00','18.00'];
+
+  let card=document.createElement('div');
+  card_container.appendChild(card);
+  card.setAttribute('class','w-[218px] h-[280px] rounded-[30px]');
+  card.setAttribute('id','card_id_1');
+  
+let card_uppder=document.createElement('div');
+let card_lower=document.createElement('div');
+
+card.appendChild(card_uppder);
+card.appendChild(card_lower);
+
+
+card_uppder.setAttribute('class','w-[100%] h-[200px] flex justify-center items-center');
+card_lower.setAttribute('class','w-[100%] h-[80px]');
+
+
+let card_upper_img=document.createElement('img');
+card_uppder.appendChild(card_upper_img);
+
+
+card_upper_img.setAttribute('src',array[img_i]);
+card_upper_img.setAttribute('class','w-[80%] h-[80%] object-contain'); 
+
+let card_lower_1=document.createElement('div');
+let card_lower_2=document.createElement('div');
+
+card_lower.appendChild(card_lower_1);
+card_lower.appendChild(card_lower_2);
+
+card_lower.setAttribute('class','px-[5px]')
+
+card_lower_1.innerText=array1[img_i];
+card_lower_1.setAttribute('class','text-[#274C5B] text-[20px] font-semibold pb-[8px] border-b-2 border-b-grey-500');
+
+// card_lower_2.setAttribute('class','');
+
+let card_lower_2_1=document.createElement('div');
+let card_lower_2_2=document.createElement('div');
+
+card_lower_2.setAttribute('class','flex justify-between items-center');
+
+card_lower_2.appendChild(card_lower_2_1);
+card_lower_2.appendChild(card_lower_2_2);
+
+card_lower_2_1.setAttribute('class','text-[15px]');
+
+let pri=10;
+card_lower_2_1.innerHTML='<font color="#D3D3D3"><del>$20.00</del></font>';
+card_lower_2_1.innerHTML+=`&nbsp;<font color="#274C5B">$${array_price[img_i]}</font>`;
+
+card_lower_2_2.setAttribute('class','flex justify-center items-center gap-x-[1px] text-[#FFA858]');
+
+let rating_1=document.createElement('div');
+let rating_2=document.createElement('div');
+let rating_3=document.createElement('div');
+let rating_4=document.createElement('div');
+let rating_5=document.createElement('div');
+
+
+rating_1.setAttribute('class','ri-star-fill');
+rating_2.setAttribute('class','ri-star-fill');
+rating_3.setAttribute('class','ri-star-fill');
+rating_4.setAttribute('class','ri-star-fill');
+rating_5.setAttribute('class','ri-star-fill');
+
+card_lower_2_2.appendChild(rating_1);
+card_lower_2_2.appendChild(rating_2);
+card_lower_2_2.appendChild(rating_3);
+card_lower_2_2.appendChild(rating_4);
+card_lower_2_2.appendChild(rating_5);
+}
+// card
+
+for(let i=0; i<11; i++){
+    generate_cade(i);
+}
+
+// card
+
+// team
+
+team_heading.setAttribute('class','w-[100%] h-auto my-[10px] flex justify-center items-center flex-col gap-y-[5px]');
+
+
+let team_heading_1=document.createElement('div');
+let team_heading_2=document.createElement('div');
+let team_heading_3=document.createElement('div');
+
+team_heading.appendChild(team_heading_1);
+team_heading.appendChild(team_heading_2);
+team_heading.appendChild(team_heading_3);
+
+team_heading_1.setAttribute('class','text-[17px] sm:text-[20px] font-semibold text-[#7EB693]');
+team_heading_2.setAttribute('class','text-[25px] sm:text-[30px] font-bold text-[#274C5B]');
+team_heading_3.setAttribute('class','text-[13px] md:text-[15px] px-[10px] w-[95%] md:w-[80%] text-balance text-center text-[#525C60]');
+
+team_heading_1.innerHTML='<h3>Team</h3>';
+team_heading_2.innerHTML='<h2>Our Organic Experts</h2>';
+team_heading_3.innerHTML='<p>Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry \'s\ standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>';
+
+
+team_section.setAttribute('class','w-[100%] h-auto flex justify-center items-center flex-wrap px-[10px] my-[20px] gap-[30px] md:w-[70%]  lg:w-[65%]');
+
+let team_img=['./Photo/t1.svg','./Photo/t2.svg','./Photo/t3.svg','./Photo/t4.svg','./Photo/t5.svg','./Photo/t6.svg'];
+let team_name=['Giovani Bacardo','Marianne Loreno','Riga Pelore','Keira Knightley','Scott Lawrence','Karen Allen'];
+let team_work=['Farmer','Designer','Farmer','Farmer','Designer','Farmer'];
+
+function generate_team(my_element){
+
+  main_center_container.setAttribute('class','w-[100%] h-auto flex justify-center items-center');
+
+  let team_card=document.createElement('div');
+  team_section.appendChild(team_card);
+  team_card.setAttribute('class','w-[210px] h-[300px]');
+  team_card.setAttribute('id','team_card_1');
+
+
+  let upper_team_card=document.createElement('div');
+  let lower_team_card=document.createElement('div');
+  
+  team_card.appendChild(upper_team_card);
+  team_card.appendChild(lower_team_card);
+  
+  
+  upper_team_card.setAttribute('class','w-[100%] h-[80%]');
+  
+  let upper_team_card_img=document.createElement('img');
+  upper_team_card_img.setAttribute('src',team_img[my_element]);
+  upper_team_card_img.setAttribute('class','w-[100%] h-[100%] object-cover');
+  
+  upper_team_card.appendChild(upper_team_card_img);
+  
+  lower_team_card.setAttribute('class','px-[10px] pt-[5px]');
+  
+  let lower_team_card_1=document.createElement('div');
+  let lower_team_card_2=document.createElement('div');
+  
+  lower_team_card.appendChild(lower_team_card_1);
+  lower_team_card.appendChild(lower_team_card_2);
+  
+  lower_team_card_1.setAttribute('class','text-[#274C5B] text-semibold text-[18px]');
+  lower_team_card_1.innerText=team_name[my_element];
+  
+  let lower_team_card_2_a=document.createElement('div');
+  let lower_team_card_2_b=document.createElement('div');
+  
+  lower_team_card_2.appendChild(lower_team_card_2_a);
+  lower_team_card_2.appendChild(lower_team_card_2_b);
+  
+  lower_team_card_2_a.innerText=team_work[my_element];
+  
+lower_team_card_2_a.setAttribute('class','text-[#7EB693]');
+lower_team_card_2.setAttribute('class','flex justify-between items-center');
+lower_team_card_2_b.setAttribute('class','flex justify-center items-center gap-x-[6px] text-[#274C5B]');
+
+let social_1=document.createElement('div');
+let social_2=document.createElement('div');
+let social_3=document.createElement('div');
+
+lower_team_card_2_b.appendChild(social_1);
+lower_team_card_2_b.appendChild(social_2);
+lower_team_card_2_b.appendChild(social_3);
+
+social_1.setAttribute('class','ri-instagram-line');
+social_2.setAttribute('class','ri-facebook-fill');
+social_3.setAttribute('class','ri-twitter-line');
+}
+
+for(let i=0; i<=5; i++){
+  generate_team(i);
+}
+
+// team
+
+// img section
+
+img_section.setAttribute('class','w-[100%] h-auto flex justify-center items-center flex-wrap gap-x-[30px] gap-y-[20px] my-[20px]');
+
+
+let array_img=['./Photo/we1.svg','./Photo/we2.svg','./Photo/we3.svg'];
+
+function img_sec(my_val){
+
+  let img_section_1=document.createElement('div');
+  
+  img_section_1.setAttribute('class','w-[330px] h-[300px]');
+  img_section.appendChild(img_section_1);
+  
+  let img_section_1_img=document.createElement('img');
+  img_section_1_img.setAttribute('src',array_img[my_val]);
+  
+  img_section_1_img.setAttribute('class','w-[100%] h-[100%] object-cover');
+  img_section_1.appendChild(img_section_1_img);
+}
+
+for(let i=0; i<=2; i++){
+   img_sec(i);
+}
+// img section
+
+// footer
+
+main_footer.setAttribute('class','w-[100%] h-auto pt-[30px] flex justify-center items-center gap-[40px] flex-wrap');
+
+let foot_1=document.createElement('div');
+let foot_2=document.createElement('div');
+let foot_3=document.createElement('div');
+
+main_footer.appendChild(foot_1);
+main_footer.appendChild(foot_2);
+main_footer.appendChild(foot_3);
+
+foot_1.setAttribute('class','w-[250px] h-[250px]  text-[18px] space-y-2 text-[#525C60]');
+foot_2.setAttribute('class','w-[310px] h-[250px]  flex justify-center items-center flex-col space-y-2');
+foot_3.setAttribute('class','w-[250px] h-[250px]  text-[18px] space-y-2 text-[#525C60]');
+
+let foot_1_1=document.createElement('div');
+let foot_1_2=document.createElement('div');
+let foot_1_3=document.createElement('div');
+let foot_1_4=document.createElement('div');
+
+
+foot_1.appendChild(foot_1_1);
+foot_1.appendChild(foot_1_2);
+foot_1.appendChild(foot_1_3);
+foot_1.appendChild(foot_1_4);
+
+foot_1_1.innerText='Contact Us';
+foot_1_1.setAttribute('class','text-[#274C5B] text-[20px] font-bold');
+
+let foot_1_2_1=document.createElement('div');
+let foot_1_2_2=document.createElement('div');
+
+foot_1_2.appendChild(foot_1_2_1);
+foot_1_2.appendChild(foot_1_2_2);
+
+foot_1_2.setAttribute('class','pt-[10px]');
+
+foot_1_2_1.innerText='Email';
+foot_1_2_2.innerText='needhelp@Organia.com';
+
+
+foot_1_2_1.setAttribute('class','font-semibold');
+
+let foot_1_3_1=document.createElement('div');
+let foot_1_3_2=document.createElement('div');
+
+foot_1_3.appendChild(foot_1_3_1);
+foot_1_3.appendChild(foot_1_3_2);
+
+foot_1_3_1.innerText='Phone';
+foot_1_3_2.innerText='666 888 888';
+
+foot_1_3_1.setAttribute('class','font-semibold');
+
+let foot_1_4_1=document.createElement('div');
+let foot_1_4_2=document.createElement('div');
+
+foot_1_4.appendChild(foot_1_4_1);
+foot_1_4.appendChild(foot_1_4_2);
+
+foot_1_4_1.innerText='Address';
+foot_1_4_2.innerText='88 road, borklyn street, USA';
+
+foot_1_4_1.setAttribute('class','font-semibold');
+
+
+let foot_3_1=document.createElement('div');
+let foot_3_2=document.createElement('div');
+let foot_3_3=document.createElement('div');
+let foot_3_4=document.createElement('div');
+let foot_3_5=document.createElement('div');
+let foot_3_6=document.createElement('div');
+
+foot_3.appendChild(foot_3_1);
+foot_3.appendChild(foot_3_2);
+foot_3.appendChild(foot_3_3);
+foot_3.appendChild(foot_3_4);
+foot_3.appendChild(foot_3_5);
+foot_3.appendChild(foot_3_6);
+
+
+foot_3_1.innerText='Utility Pages';
+foot_3_1.setAttribute('class','text-[#274C5B] text-[20px] font-bold');
+
+foot_3_2.innerText='Style Guide';
+foot_3_2.setAttribute('class','pt-[10px]');
+
+foot_3_3.innerText='404 Not Found';
+foot_3_4.innerText='Password Protected';
+foot_3_5.innerText='Licences';
+foot_3_6.innerText='Changelog';
+
+let foot_2_1=document.createElement('div');
+let foot_2_2=document.createElement('div');
+let foot_2_3=document.createElement('div');
+
+foot_2.appendChild(foot_2_1);
+foot_2.appendChild(foot_2_2);
+foot_2.appendChild(foot_2_3);
+
+let foot_2_img=document.createElement('img');
+foot_2_img.setAttribute('src','./Photo/Logo(1).svg');
+
+foot_2_1.appendChild(foot_2_img);
+
+foot_2_2.setAttribute('class','flex justify-center items-center px-[10px] text-center');
+foot_2_2.innerText='Simply dummy text of the printing and typesetting industry.Lorem Ipsum simply dummy text of the printing';
+
+let foot_2_logo_1=document.createElement('div');
+let foot_2_logo_2=document.createElement('div');
+let foot_2_logo_3=document.createElement('div');
+let foot_2_logo_4=document.createElement('div');
+
+
+foot_2_3.appendChild(foot_2_logo_1);
+foot_2_3.appendChild(foot_2_logo_2);
+foot_2_3.appendChild(foot_2_logo_3);
+foot_2_3.appendChild(foot_2_logo_4);
+
+foot_2_3.setAttribute('class','flex justify-center items-center gap-x-[15px]')
+
+foot_2_logo_1.setAttribute('class','ri-instagram-line  w-[45px] h-[45px] flex justify-center items-center rounded-[50px] text-[20px] text-[#274C5B] bg-[#EFF6F1]');
+foot_2_logo_2.setAttribute('class','ri-facebook-fill  w-[45px] h-[45px] flex justify-center items-center rounded-[50px] text-[20px] text-[#274C5B] bg-[#EFF6F1]');
+foot_2_logo_3.setAttribute('class','ri-twitter-fill  w-[45px] h-[45px] flex justify-center items-center rounded-[50px] text-[20px] text-[#274C5B] bg-[#EFF6F1]');
+foot_2_logo_4.setAttribute('class','ri-pinterest-line  w-[45px] h-[45px] flex justify-center items-center rounded-[50px] text-[20px] text-[#274C5B] bg-[#EFF6F1]');
+
+// footer
+
+
+</script>
+</html>
