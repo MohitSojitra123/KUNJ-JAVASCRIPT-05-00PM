@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 20px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .logo {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 15px;
+            transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        .nav-links a:hover {
+            color: #f4a261;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+        .btn {
+            background: #f4a261;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            background: #e68a4a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://wallpapers.com/images/hd/restaurant-in-pine-tree-spa-resort-darjeeling-india-v7iyh9ntuliinphs.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+            padding: 0 20px;
+        }
+        .hero-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px;
+            border-radius: 12px;
+            animation: slideIn 1.5s ease-in-out;
+            max-width: 600px;
+            width: 100%;
+        }
+        .hero-content h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Restaurant</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#book" class="btn">Book Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Restaurant</h1>
+            <p>Enjoy delicious food with the best ambiance.</p>
+            <a href="form.html" class="btn">Order Now</a>
+        </div>
+    </header>
+</body>
+</html>

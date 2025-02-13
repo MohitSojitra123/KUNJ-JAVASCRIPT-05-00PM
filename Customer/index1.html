@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    *{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    width: 80vw;
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form1{
+    width: 50%;
+    height: 600px;
+    padding-inline: 10%;
+    background-color: cadetblue;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    font-size: 17px;
+}
+
+label{
+    padding-left: 10px;
+}
+
+.bill_container{
+    width: 50%;
+    height: 600px;
+    background-color: antiquewhite;
+    overflow-y: scroll;
+    gap: 20px;
+}
+
+#bill_1{
+    width: 400px;
+    height: 600px;
+    background-color: aquamarine;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+#tit1{
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 26px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#main_con{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 20px;
+    font-size: 19px;
+}
+
+#b1{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 10px;
+}
+
+.fb1{
+    border-top: 2px solid rebeccapurple;
+    padding-top: 10px;
+}
+</style>
+<body>
+
+    <form action="" id="form1">
+       <label for="">Customer Name :</label>
+       <input type="text" id="Customer_name" autocomplete="off" required>
+       <label for="">Customer Mobile Number :</label>
+       <input type="text" id="Customer_mobile_number" autocomplete="off" required>
+       <label for="">Purchase Products</label>
+       <input type="text" id="purchase_product" autocomplete="off" required>
+       <lable for="">Product Price</lable>
+       <input type="text" id="product_price" autocomplete="off" required>
+       <label for="">Quantity</label>
+       <input type="text" id="quantity" autocomplete="off" required>
+       <label for="">GST </label>
+       <input type="text" id="gst" autocomplete="off" required>
+       <label for="">Discount</label>
+       <input type="text" id="discount" autocomplete="off" required>
+       <input type="Submit" id="sub123" value="Generate Bill">
+    </form>
+
+    <div class="bill_container">
+     
+    </div>
+        
+</body>
+<script>
+    let sub123=document.getElementById("sub123");
+let Customer_name=document.getElementById("Customer_name");
+let Customer_mobile_number=document.getElementById("Customer_mobile_number");
+let purchase_product=document.getElementById("purchase_product");
+let quantity=document.getElementById("quantity");
+let product_price=document.getElementById("product_price");
+let gst=document.getElementById("gst");
+let discount=document.getElementById("discount");
+
+let all_bill=[];
+let obj1={};
+
+sub123.addEventListener("click",function(e){
+    e.preventDefault();
+
+    obj1.c_name=Customer_name.value;
+    obj1.c_m_n=Customer_mobile_number.value;
+    obj1.pur_product=purchase_product.value;
+    obj1.quantity=quantity.value;
+    obj1.gst=gst.value;
+    obj1.dis=discount.value;
+    obj1.pro_pri=product_price.value;
+
+   all_bill.push(obj1);
+
+   let bill_container=document.getElementsByClassName("bill_container")[0];
+   let bill_1=document.createElement("div");
+   bill_1.setAttribute("id","bill_1");
+   
+   let title_1=document.createElement("div");
+   title_1.innerText="Electronics Shop";
+   title_1.setAttribute("id","tit1");
+
+   bill_1.append(title_1);
+
+   let main_con=document.createElement("div");
+   main_con.setAttribute("id","main_con");
+
+   bill_1.append(main_con);
+
+   let div1=document.createElement("div");
+   div1.setAttribute("id","b1");
+   let div_1_1=document.createElement("div");
+   let div_1_2=document.createElement("div");
+   div_1_1.innerHTML="Customer Name :";
+   div_1_2.innerHTML=obj1.c_name;
+   div1.append(div_1_1);
+   div1.append(div_1_2);
+   main_con.append(div1);
+
+   let div2=document.createElement("div");
+   div2.setAttribute("id","b1");
+   let div_2_1=document.createElement("div");
+   let div_2_2=document.createElement("div");
+   div_2_1.innerHTML="Customer Mobile Number :";
+   div_2_2.innerHTML=obj1.c_m_n;
+   div2.append(div_2_1);
+   div2.append(div_2_2);
+   main_con.append(div2);
+
+   let div3=document.createElement("div");
+   div3.setAttribute("id","b1");
+   let div_3_1=document.createElement("div");
+   let div_3_2=document.createElement("div");
+   div_3_1.innerHTML="Purchase Products :";
+   div_3_2.innerHTML=obj1.pur_product;
+   div3.append(div_3_1);
+   div3.append(div_3_2);
+   main_con.append(div3);
+
+   let div4=document.createElement("div");
+   div4.setAttribute("id","b1");
+   let div_4_1=document.createElement("div");
+   let div_4_2=document.createElement("div");
+   div_4_1.innerHTML="Product Price :";
+   div_4_2.innerHTML=obj1.pro_pri;
+   div4.append(div_4_1);
+   div4.append(div_4_2);
+   main_con.append(div4);
+
+   let div5=document.createElement("div");
+   div5.setAttribute("id","b1");
+   let div_5_1=document.createElement("div");
+   let div_5_2=document.createElement("div");
+   div_5_1.innerHTML="Quantity :";
+   div_5_2.innerHTML=obj1.quantity;
+   div5.append(div_5_1);
+   div5.append(div_5_2);
+   main_con.append(div5);
+    
+   let div6=document.createElement("div");
+   div6.setAttribute("id","b1");
+   let div_6_1=document.createElement("div");
+   let div_6_2=document.createElement("div");
+   div_6_1.innerHTML="GST :";
+   div_6_2.innerHTML=obj1.gst;
+   div6.append(div_6_1);
+   div6.append(div_6_2);
+   main_con.append(div6);
+
+   let div7=document.createElement("div");
+   div7.setAttribute("id","b1");
+   let div_7_1=document.createElement("div");
+   let div_7_2=document.createElement("div");
+   div_7_1.innerHTML="Discount :";
+   div_7_2.innerHTML=obj1.dis;
+   div7.append(div_7_1);
+   div7.append(div_7_2);
+   main_con.append(div7);
+
+   let t_price=(obj1.pro_pri*obj1.quantity)
+
+   let div8=document.createElement("div");
+   div8.setAttribute("id","b1")
+   div8.setAttribute("class","fb1");
+   let div_8_1=document.createElement("div");
+   let div_8_2=document.createElement("div");
+   div_8_1.innerHTML="Total Price :";
+   div_8_2.innerHTML=t_price;
+   div8.append(div_8_1);
+   div8.append(div_8_2);
+   main_con.append(div8);
+   
+   let count_gst=((obj1.pro_pri*obj1.quantity)*obj1.gst/100);
+   
+   let div9=document.createElement("div");
+   div9.setAttribute("id","b1");
+   div9.setAttribute("class","fb1");
+   let div_9_1=document.createElement("div");
+   let div_9_2=document.createElement("div");
+   div_9_1.innerHTML="+ GST :";
+   div_9_2.innerHTML=count_gst;
+   div9.append(div_9_1);
+   div9.append(div_9_2);
+   main_con.append(div9);
+   
+   let count_discount=(((obj1.pro_pri*obj1.quantity)+count_gst)*obj1.dis/100);
+   
+   let div10=document.createElement("div");
+   div10.setAttribute("id","b1");
+   div10.setAttribute("class","fb1");
+   let div_10_1=document.createElement("div");
+   let div_10_2=document.createElement("div");
+   div_10_1.innerHTML="- Discount :";
+   div_10_2.innerHTML=count_discount;
+   div10.append(div_10_1);
+   div10.append(div_10_2);
+   main_con.append(div10);
+
+   let cout_final_price=((obj1.pro_pri*obj1.quantity)-count_discount);
+
+   let div11=document.createElement("div");
+   div11.setAttribute("id","b1");
+   div11.setAttribute("class","fb1");
+   let div_11_1=document.createElement("div");
+   let div_11_2=document.createElement("div");
+   div_11_1.innerHTML="= Final Price :";
+   div_11_2.innerHTML=`<mark>${cout_final_price}</mark>`;
+   div11.append(div_11_1);
+   div11.append(div_11_2);
+   main_con.append(div11);
+   
+
+
+   
+
+   
+   Customer_name.value="";
+   Customer_mobile_number.value="";
+    purchase_product.value="";
+    quantity.value="";
+    product_price.value="";
+    gst.value="";
+    discount.value="";
+
+
+
+
+   
+   bill_container.append(bill_1);
+
+})
+</script>
+</html>

@@ -1,0 +1,36 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.main_container{
+   width: 100vw;
+   height: 500px;
+}
+
+.img_container{
+   width: 100vw;
+   height: 100%;
+}
+
+.img_container img{
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btns{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+button{
+    width: 150px;
+    height: 25%;
+    font-size: 20px;
+}

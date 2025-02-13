@@ -49,6 +49,8 @@ sub_button.addEventListener("click",function(e){
    std.value=null;
    city.value=null;
 
+   
+   alert(`Record  Number := ${counter}  Successfully Added`);
    counter++;
 
 })

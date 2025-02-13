@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #form1 {
+            width: 350px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            margin: 10px 0 5px;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            color: black;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.02);
+        }
+
+        #sub123 {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #ff7eb3;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #sub123:hover {
+            background: #ff4e88;
+            transform: scale(1.05);
+        }
+
+        .bill_container {
+            width: 350px;
+            height: 600px;
+            overflow-y: auto;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .bill {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .bill:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="form1">
+            <label>Customer Name:</label>
+            <input type="text" id="Customer_name" required autocomplete="off">
+            <label>Mobile Number:</label>
+            <input type="text" id="Customer_mobile_number" required autocomplete="off">
+            <label>Purchase Products:</label>
+            <input type="text" id="purchase_product" required autocomplete="off">
+            <label>Product Price:</label>
+            <input type="text" id="product_price" required autocomplete="off">
+            <label>Quantity:</label>
+            <input type="text" id="quantity" required autocomplete="off">
+            <label>GST (%):</label>
+            <input type="text" id="gst" required autocomplete="off">
+            <label>Discount (%):</label>
+            <input type="text" id="discount" required autocomplete="off">
+            <input type="submit" id="sub123" value="Generate Bill">
+        </form>
+        <div class="bill_container"></div>
+    </div>
+
+    <script>
+        document.getElementById("sub123").addEventListener("click", function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById("Customer_name").value;
+            let mobile = document.getElementById("Customer_mobile_number").value;
+            let product = document.getElementById("purchase_product").value;
+            let price = parseFloat(document.getElementById("product_price").value);
+            let quantity = parseInt(document.getElementById("quantity").value);
+            let gst = parseFloat(document.getElementById("gst").value);
+            let discount = parseFloat(document.getElementById("discount").value);
+
+            let total = price * quantity;
+            let gstAmount = (total * gst) / 100;
+            let discountAmount = ((total + gstAmount) * discount) / 100;
+            let finalPrice = total + gstAmount - discountAmount;
+
+            let billContainer = document.querySelector(".bill_container");
+            let bill = document.createElement("div");
+            bill.className = "bill";
+            bill.innerHTML = `
+                <h3>Electronics Shop</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Mobile:</strong> ${mobile}</p>
+                <p><strong>Product:</strong> ${product}</p>
+                <p><strong>Price:</strong> $${price.toFixed(2)}</p>
+                <p><strong>Quantity:</strong> ${quantity}</p>
+                <p><strong>GST:</strong> $${gstAmount.toFixed(2)}</p>
+                <p><strong>Discount:</strong> -$${discountAmount.toFixed(2)}</p>
+                <h4>Total: $${finalPrice.toFixed(2)}</h4>
+            `;
+            billContainer.appendChild(bill);
+
+            document.getElementById("form1").reset();
+        });
+    </script>
+</body>
+</html>

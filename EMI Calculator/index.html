@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 450px;
+            text-align: left;
+            color: #fff;
+        }
+        h2 {
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+        }
+        label {
+            display: block;
+            font-size: 16px;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            outline: none;
+        }
+        button {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+        }
+        .chart-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="glass">
+            <h2>EMI Calculator</h2>
+            <label>Principal Amount:</label>
+            <input type="number" id="principal" placeholder="Enter amount" required>
+            
+            <label>Interest Rate (% per annum):</label>
+            <input type="number" id="rate" placeholder="Enter interest rate" required>
+            
+            <label>Loan Term (years):</label>
+            <input type="number" id="years" placeholder="Enter loan term" required>
+            
+            <div class="" style="width: 100%; height: auto; display: flex; justify-content: center; align-items: center;">
+                <center> <button id="btn1" style="width: 300px;">Calculate</button></center>
+            </div>
+        </div>
+        
+        <div class="chart-section">
+            <figure>
+                <div id="container"></div>
+            </figure>
+        </div>
+    </div>
+    
+    <div class="result-section">
+        <p>Monthly Payment: <span id="monthlyPayment">0</span></p>
+        <p>Total Interest: <span id="totalInterest">0</span></p>
+        <p>Total Payment: <span id="totalPayment">0</span></p>
+    </div> 
+</body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script>
+    document.getElementById("btn1").addEventListener("click", function() {
+        let principal = parseFloat(document.getElementById("principal").value);
+        let rate = parseFloat(document.getElementById("rate").value) / 100 / 12;
+        let years = parseFloat(document.getElementById("years").value) * 12;
+        if (isNaN(principal) || isNaN(rate) || isNaN(years) || principal <= 0 || rate <= 0 || years <= 0) {
+            alert("Please enter valid positive values.");
+            return;
+        }
+        let x = Math.pow(1 + rate, years);
+        let monthlyPayment = (principal * rate * x) / (x - 1);
+        let totalPayment = monthlyPayment * years;
+        let totalInterest = totalPayment - principal;
+
+        document.getElementById("monthlyPayment").innerText = monthlyPayment.toFixed(2);
+        document.getElementById("totalInterest").innerText = totalInterest.toFixed(2);
+        document.getElementById("totalPayment").innerText = totalPayment.toFixed(2);
+
+        Highcharts.chart('container', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Loan Breakdown'
+            },
+            series: [{
+                name: 'Amount',
+                data: [
+                    { name: 'Principal', y: principal },
+                    { name: 'Interest', y: totalInterest }
+                ]
+            }]
+        });
+    });
+
+    Highcharts.chart('container', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Loan Breakdown'
+            },
+            series: [{
+                name: 'Amount',
+                data: [
+                    { name: 'Principal', y: 50 },
+                    { name: 'Interest', y: 50 }
+                ]
+            }]
+        });
+</script>
+
+</html>

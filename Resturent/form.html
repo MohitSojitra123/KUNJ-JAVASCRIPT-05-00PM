@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e6cc; /* Light Beige */
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 500px;
+            background: #ffffff; /* White */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #5a3e36; /* Dark Brown */
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #5a3e36; /* Dark Brown */
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fdf6e3; /* Soft Cream */
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #d35400; /* Deep Orange */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #a04000; /* Darker Orange */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Restaurant Order Form</h2>
+        <form>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="dish">Select Dish:</label>
+            <select id="dish" name="dish" required>
+                <option value="Pizza">Pizza</option>
+                <option value="Burger">Burger</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Salad">Salad</option>
+            </select>
+
+            <label>Choose Size:</label>
+            <div class="radio-group">
+                <input type="radio" id="small" name="size" value="Small" required>
+                <label for="small">Small</label>
+                <input type="radio" id="medium" name="size" value="Medium">
+                <label for="medium">Medium</label>
+                <input type="radio" id="large" name="size" value="Large">
+                <label for="large">Large</label>
+            </div>
+
+            <label>Add Extras:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="cheese" name="extras" value="Extra Cheese">
+                <label for="cheese">Extra Cheese</label>
+                <input type="checkbox" id="sauce" name="extras" value="Extra Sauce">
+                <label for="sauce">Extra Sauce</label>
+            </div>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+
+            <label for="notes">Special Instructions:</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

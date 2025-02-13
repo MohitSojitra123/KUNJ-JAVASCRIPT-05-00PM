@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- REmix Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- REmix Icon -->
+
+<style>
+
+     *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+     } 
+
+    .img_continer{
+        width: 100vw;
+        height: 580px;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .bg_img{
+      width: 100vw;
+      height: 100%;   
+    }
+
+    .bg_img img{
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .btn_container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px; 
+        gap: 20px;
+    }
+
+    button{
+        width: 200px;
+        font-size: 22px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+    
+    <div class="img_continer">
+
+        <div class="bg_img">
+            <img src="./photo/img2.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img3.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img4.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img5.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img6.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img7.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img8.jpg" alt="">
+        </div>
+        <div class="bg_img">
+            <img src="./photo/img1.jpg" alt="">
+        </div>
+    </div>
+    
+    <div class="btn_container">
+        <div class=""><button class="previous_1"><i class="ri-arrow-left-fill"></i>&nbsp;Previous</button></div>
+        <div class=""><button class="next_1">Next&nbsp;<i class="ri-arrow-right-fill"></i></button></div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    button{
+        background-color:wheat;
+
+    }
+</style>
+
+<body style="width: 100%; height: 500px; display: flex; justify-content: center; align-items: center;">
+    
+
+    <div class="" style="width: 500px; height: 200px; border-radius: 30px; padding-top: 35px; box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+        <div class="" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 30px;">
+            <div class="" id="counter_h1" style="font-size: 50px;">0 😩</div>
+            <div class="" style="width: auto; display: flex; justify-items: center; align-items: center; gap: 20px;">
+                <div class="" id="plus_h1" style="width: 120px;"><button style="width: 100%; height: 40px; cursor: pointer; font-size: 20px; border-radius: 10px;">+ 1</button></div>
+                <div class="" id="plus_h2" style="width: 120px;"><button style="width: 100%; height: 40px; cursor: pointer; font-size: 20px; border-radius: 10px;">+ 2</button></div>
+                <div class="" id="min" style="width: 120px;"><button style="width: 100%; height: 40px; cursor: pointer; font-size: 20px; border-radius: 10px;">Clear</button></div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+
+let counter_h1=document.getElementById("counter_h1");
+
+let plus_1=document.getElementById("plus_h1");
+let plus_2=document.getElementById("plus_h2");
+let min=document.getElementById("min");
+let body1=document.getElementsByTagName("body")[0];
+
+let c=0;
+
+plus_1.addEventListener('click',function(){
+    counter_h1.innerHTML=c++;
+    counter_h1.innerHTML+=" 🙂";
+    let random=Math.ceil(Math.random()*1000000);
+    counter_h1.style.color="#"+random;
+})
+
+plus_2.addEventListener('click',function(){
+    counter_h1.innerHTML=c=c+2;
+    counter_h1.innerHTML+=" 😁";
+    let random=Math.ceil(Math.random()*1000000);
+     counter_h1.style.color="#"+random;
+})
+min.addEventListener('click',function(){
+    counter_h1.innerHTML=0;
+    counter_h1.innerHTML="0 😩";
+    c=0;
+    let random=Math.ceil(Math.random()*1000000);
+   counter_h1.style.color="#"+random;
+})
+
+
+
+
+</script>
+</html>

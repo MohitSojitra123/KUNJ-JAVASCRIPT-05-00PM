@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#studentform{
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+input{
+    width: 100%;
+    height: 40px;
+    padding-left:10px;
+    outline: none;
+    border: 2px solid salmon;
+    border-radius:20px;
+}
+
+#Add_stu{
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid salmon;
+    cursor: pointer;
+    color: salmon; 
+}
+
+#stu_detail{
+    width: 500px;
+    height: auto;
+    background-color: antiquewhite;
+    margin-top: 20px;
+    padding: 20px 10px;
+}
+
+</style>
+<body>
+    
+    <form action="" id="studentform">
+        <input type="text" placeholder="Enter Student Name" id="stu_name">
+        <input type="text" placeholder="Enter Student City" id="stu_city">
+        <input type="text" placeholder="Enter Student Roll Number" id="stu_roll">
+        <input type="text" placeholder="Enter Student Mobile Number" id="stu_mob">
+        <button id="Add_stu">Add Student</button>
+    </form>
+
+    <div id="stu_detail"></div>
+
+</body>
+<script>
+
+let stu_name=document.getElementById("stu_name");
+let stu_city=document.getElementById("stu_city");
+let stu_roll=document.getElementById("stu_roll");
+let stu_mob=document.getElementById("stu_mob");
+let stu_detail=document.getElementById("stu_detail");
+let studentform=document.getElementById("studentform");
+
+
+const student_all=JSON.parse(localStorage.getItem("student")) || [];
+// const student_all=[];
+
+function student(name,city,roll,mob){
+       student_all.push(
+        {
+            name:name,
+            city:city,
+            roll:roll,
+            mob:mob,
+        });
+
+        localStorage.setItem("student",JSON.stringify(student_all));
+        return {name,city,roll,mob};
+}
+
+function createElement1({name,city,roll,mob}){
+    
+    let studentDiv=document.createElement("div");
+    let studentname=document.createElement("h3");
+    let studentcity=document.createElement("h3");
+    let studentroll=document.createElement("h3");
+    let studentmob=document.createElement("h3");
+
+
+    studentname.innerText="Name Is... " + name;
+    studentcity.innerText="City Is... " + city;
+    studentroll.innerText="Roll Number Is... " + roll;
+    studentmob.innerText="Mobile Number Is " + mob;
+
+    studentDiv.append(studentname,studentcity,studentroll,studentmob);
+    stu_detail.appendChild(studentDiv);
+}
+
+
+student_all.forEach(createElement1);
+
+
+studentform.onsubmit=(e)=>{
+     
+    e.preventDefault();
+    
+    new_student=student(stu_name.value,stu_city.value,stu_roll.value,stu_mob.value);
+
+    createElement1(new_student);
+    
+    stu_name.value="";
+    stu_city.value="";
+    stu_mob.value="";
+    stu_roll.value="";
+
+}
+
+
+
+</script>
+</html>

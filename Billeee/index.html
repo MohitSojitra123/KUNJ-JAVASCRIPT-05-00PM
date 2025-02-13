@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+#stu_detail{
+    width: 400px;
+    height: 480px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+label{
+    font-size: 18px;
+}
+
+input{
+    width:100%;
+    height: 30px;
+    margin: 8px 0px;
+}
+
+.box2{
+    width: 400px;
+    height: 480px;
+    border: 2px solid black;
+    overflow-y: scroll;
+}
+
+#box3{
+    width: 380px;
+    height: 150px;
+    background-color:thistle;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+h3{
+    margin: 5px 0px;
+}
+
+p{
+    margin: 5px 0px;
+}
+
+</style>
+<body>
+    <form action="" id="stu_detail">
+        <label for="">Name : </label>
+        <input type="text" id="stu_name" autocomplete="off">
+        <label for="">Std :</label>
+        <input type="text" id="stu_std" autocomplete="off">
+        <label for="">Roll Number :</label>
+        <input type="text" id="stu_roll" autocomplete="off">
+        <label for="">City :</label>
+        <input type="text" id="stu_city" autocomplete="off">
+        <label for="">Mobile Number :</label>
+        <input type="text" id="stu_mobile" autocomplete="off">
+        <label for="">Age :</label>
+        <input type="text" id="stu_age" autocomplete="off">
+        <input type="Submit" id="sub123"> 
+    </form>
+
+    <div class="box2">
+            
+    </div>
+    
+
+</body>
+</html>
+<script>
+
+let stu_name=document.getElementById("stu_name");
+let stu_std=document.getElementById("stu_std");
+let stu_roll=document.getElementById("stu_roll");
+let stu_city=document.getElementById("stu_city");
+let stu_mobile=document.getElementById("stu_mobile");
+let stu_age=document.getElementById("stu_age");
+let sub123=document.getElementById("sub123");
+let h_3=document.getElementById("h_3");
+
+let all_student=[];
+let obj={}; 
+
+
+sub123.addEventListener("click",function(e){
+    e.preventDefault();
+    
+     obj.name=stu_name.value;
+     obj.std=stu_std.value;
+     obj.roll=stu_roll.value;
+     obj.city=stu_city.value;
+     obj.mobile=stu_mobile.value;
+     obj.age=stu_age.value;
+    
+     all_student.push(obj);
+
+     let box2=document.getElementsByClassName("box2")[0];
+
+     let box3=document.createElement("div");
+     box3.setAttribute("id","box3");
+
+
+     let h2_1=document.createElement("h3");
+     let h3_1=document.createElement("p");
+     let h3_2=document.createElement("p");
+     let h3_3=document.createElement("p");
+     let h3_4=document.createElement("p");
+     let h3_5=document.createElement("p");
+
+     h2_1.innerHTML=`Student Name : <b> ${obj.name} </b>`;
+     h3_1.innerHTML=`Student Std : <b> ${obj.std} </b>`;
+     h3_2.innerHTML=`Student Roll Number :<b>${obj.roll}</b>`;
+     h3_3.innerHTML=`Student City : <b>${obj.city}</b>`;
+     h3_4.innerHTML=`Student Mobile : <b>${obj.mobile}</b>`;
+     h3_5.innerHTML=`Student Age : <b>${obj.age}</b>`;
+
+     box3.append(h2_1,h3_1,h3_2,h3_3,h3_4,h3_5);
+
+     box2.append(box3);
+
+
+     stu_name.value="";
+     stu_std.value="";
+     stu_roll.value="";
+     stu_city.value="";
+     stu_mobile.value="";
+     stu_age.value="";
+
+
+     
+});
+
+
+
+
+</script>
