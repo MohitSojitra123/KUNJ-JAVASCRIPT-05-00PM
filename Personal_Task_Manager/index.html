@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #121212;
+            font-family: Arial, sans-serif;
+            color: white;
+            width: 100vw;
+        }
+
+        .main_container {
+            width: 900px;
+            height: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            /* background: rgba(255, 255, 255, 0.1); */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            /* overflow: hidden; */
+        }
+
+        .container_1 {
+            width: 450px;
+            height: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .container_2 {
+            width: 450px;
+            height: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+        }
+
+        .task_detail {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .task_detail:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container">
+        <div class="container_1">
+            <h2>Personal Task Manager</h2>
+            <form id="form_1">
+                <label for="task_name">Task Name</label>
+                <input type="text" id="task_name">
+
+                <label for="task_description">Task Description</label>
+                <input type="text" id="task_description">
+
+                <label for="task_due_date">Task Due Date</label>
+                <input type="date" id="task_due_date">
+
+                <label for="select_status">Task Status</label>
+                <select id="select_status">
+                    <option value="Complete">Complete</option>
+                    <option value="Pending">Pending</option>
+                </select>
+
+                <button id="btn_1">Add Task</button>
+            </form>
+        </div>
+        <div class="container_2" id="task_list"></div>
+    </div>
+    <script>
+        class Task {
+            constructor() {
+                this.allTasks = [];
+            }
+
+            addTask(name, description, dueDate, status) {
+                this.allTasks.push({ name, description, dueDate, status });
+                this.renderTasks();
+            }
+
+            renderTasks() {
+                const taskList = document.getElementById("task_list");
+                taskList.innerHTML = "";
+                this.allTasks.forEach(task => {
+                    const taskDiv = document.createElement("div");
+                    taskDiv.classList.add("task_detail");
+                    taskDiv.innerHTML = `
+                        <p><strong>Task Name:</strong> ${task.name}</p>
+                        <p><strong>Description:</strong> ${task.description}</p>
+                        <p><strong>Due Date:</strong> ${task.dueDate}</p>
+                        <p><strong>Status:</strong> ${task.status}</p>
+                    `;
+                    taskList.appendChild(taskDiv);
+                });
+            }
+        }
+
+        const taskManager = new Task();
+        document.getElementById("btn_1").addEventListener("click", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("task_name").value;
+            const description = document.getElementById("task_description").value;
+            const dueDate = document.getElementById("task_due_date").value;
+            const status = document.getElementById("select_status").value;
+            if (name && description && dueDate) {
+                taskManager.addTask(name, description, dueDate, status);
+                document.getElementById("form_1").reset();
+            }
+        });
+    </script>
+</body>
+</html>
